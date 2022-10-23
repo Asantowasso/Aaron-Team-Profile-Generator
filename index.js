@@ -11,7 +11,20 @@ const fs = require('fs')
 //Select the intern option and the above is repeated
 // An HTML file is generated
 
-const questions = ([
+const questions = ([ 
+    {
+        type: 'list',
+        name: 'Stafftype',
+        message: 'Are you an engineer or a intern',
+        choices: ['Intern', 'Engineer']
+    },
+
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is their name?'
+    },
+
     {
         type: 'input',
         name: 'managername',
@@ -36,23 +49,18 @@ const questions = ([
         message: 'what is your office number?'
     },
 
-    {
-        type: 'list',
-        name: 'Stafftype',
-        message: 'Are you an engineer or a intern',
-        choices: ['Intern', 'Engineer']
-    }
+   
 ]);
 
 const generateHTML = ({managername, employeeID, emailaddress, officenumber, stafftype
 
-}) =>
+}) => ""
 
 //Skeleton of document
 
 //initialize application
-function init() {
-    inquirer.createPromptModule(questions)
+function initIntern() {
+    inquirer.prompt(questions)
     .then ((inquirerResponse) =>{
         console.log(inquirerResponse)
 
@@ -62,4 +70,4 @@ function init() {
     })
 }
 
-init()
+initIntern()
