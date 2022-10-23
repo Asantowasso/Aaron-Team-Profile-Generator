@@ -13,10 +13,31 @@ const fs = require('fs')
 
 //function internChoice
 //inquirer.prompt
+// Need a name, ID number and email
 
 function employeeType() {
     inquirer.prompt([
-        {
+    {
+        type: "input",
+        name: "realName",
+        message: "What is the individual's name?"
+
+    },
+
+    {
+        type: "input",
+        name: "idNum",
+        message: "What is the user's ID number?"
+
+    },
+
+    {
+        type: "input",
+        name: "email",
+        message: "What is the user's email"
+    },
+
+    {
             type: "list",
             name:"employeeType",
             choices: [
@@ -26,12 +47,18 @@ function employeeType() {
 
 
             ]
-        }
+    }
 
-    ]).then(function(data) {
-    const 
+    ]).then(function(answers) {
+     if(answers.employeeType === "Intern"){
+        internQuestions(answers)
+     } else if (answers.employeeType === "Engineer"){
+        engineerQuestions(answers)
+     }
 })
 }
+
+employeeType()
 const internQuestions = ([ 
     
     {
@@ -85,58 +112,58 @@ function initIntern() {
     })
 }
 
-initIntern()
+// initIntern()
 
-const engineerQuestions = ([ 
+// const engineerQuestions = ([ 
 
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is their name?'
-    },
+//     {
+//         type: 'input',
+//         name: 'name',
+//         message: 'What is their name?'
+//     },
 
-    {
-        type: 'input',
-        name: 'managername',
-        message: 'What is the name of your manager?'
-    },
+//     {
+//         type: 'input',
+//         name: 'managername',
+//         message: 'What is the name of your manager?'
+//     },
 
-    {
-        type: 'input',
-        name: 'employeeID',
-        message: 'What is your employee ID?'
-    },
+//     {
+//         type: 'input',
+//         name: 'employeeID',
+//         message: 'What is your employee ID?'
+//     },
 
-    {
-        type: 'input',
-        name: 'emailaddress',
-        message: 'What is your email address?'
-    },
+//     {
+//         type: 'input',
+//         name: 'emailaddress',
+//         message: 'What is your email address?'
+//     },
 
-    {
-        type: 'input',
-        name: 'officenumber',
-        message: 'what is your office number?'
-    },
+//     {
+//         type: 'input',
+//         name: 'officenumber',
+//         message: 'what is your office number?'
+//     },
 
    
-]);
+// ]);
 
-const generateEngineer = ({managername, employeeID, emailaddress, officenumber, stafftype
+// const generateEngineer = ({managername, employeeID, emailaddress, officenumber, stafftype
 
-}) => ""
+// }) => ""
 
-function initEngineer() {
-    inquirer.prompt(engineerQuestions)
-    .then ((inquirerResponse) =>{
-        console.log(inquirerResponse)
+// function initEngineer() {
+//     inquirer.prompt(engineerQuestions)
+//     .then ((inquirerResponse) =>{
+//         console.log(inquirerResponse)
 
-        console.log('Writing HTML');
-        fs.writeFileSync("./output/index.html",
-       generateEngineer(inquirerResponse))
-    })
-}
+//         console.log('Writing HTML');
+//         fs.writeFileSync("./output/index.html",
+//        generateEngineer(inquirerResponse))
+//     })
+// }
 
 
 
-initEngineer()
+// initEngineer()
