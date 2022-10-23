@@ -11,13 +11,83 @@ const fs = require('fs')
 //Select the intern option and the above is repeated
 // An HTML file is generated
 
-const questions = ([ 
+//function internChoice
+//inquirer.prompt
+
+function employeeType() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name:"employeeType",
+            choices: [
+                "Intern",
+                "Engineer",
+                "Exit"
+
+
+            ]
+        }
+
+    ]).then(function(data) {
+    const 
+})
+}
+const internQuestions = ([ 
+    
     {
-        type: 'list',
-        name: 'Stafftype',
-        message: 'Are you an engineer or a intern',
-        choices: ['Intern', 'Engineer']
+        type: 'input',
+        name: 'name',
+        message: 'What is their name?'
     },
+
+    {
+        type: 'input',
+        name: 'managername',
+        message: 'What is the name of your manager?'
+    },
+
+    {
+        type: 'input',
+        name: 'employeeID',
+        message: 'What is your employee ID?'
+    },
+
+    {
+        type: 'input',
+        name: 'emailaddress',
+        message: 'What is your email address?'
+    },
+
+    {
+        type: 'input',
+        name: 'officenumber',
+        message: 'what is your office number?'
+    },
+
+   
+]);
+
+const generateIntern = ({managername, employeeID, emailaddress, officenumber, stafftype
+
+}) => ""
+
+//Skeleton of document
+
+//initialize application
+function initIntern() {
+    inquirer.prompt(internQuestions)
+    .then ((inquirerResponse) =>{
+        console.log(inquirerResponse)
+
+        console.log('Writing HTML');
+        fs.writeFileSync("./output/index.html",
+       generateIntern(inquirerResponse))
+    })
+}
+
+initIntern()
+
+const engineerQuestions = ([ 
 
     {
         type: 'input',
@@ -52,22 +122,21 @@ const questions = ([
    
 ]);
 
-const generateHTML = ({managername, employeeID, emailaddress, officenumber, stafftype
+const generateEngineer = ({managername, employeeID, emailaddress, officenumber, stafftype
 
 }) => ""
 
-//Skeleton of document
-
-//initialize application
-function initIntern() {
-    inquirer.prompt(questions)
+function initEngineer() {
+    inquirer.prompt(engineerQuestions)
     .then ((inquirerResponse) =>{
         console.log(inquirerResponse)
 
         console.log('Writing HTML');
         fs.writeFileSync("./output/index.html",
-       generateHTML(inquirerResponse) )
+       generateEngineer(inquirerResponse))
     })
 }
 
-initIntern()
+
+
+initEngineer()
