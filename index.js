@@ -72,7 +72,7 @@ function managerQuestions () {
         {
         type: "input",
         name: "officeNumber",
-        Message: "What is their office number"
+        message: "What is their office number"
         },
         {
             type: "list",
@@ -146,18 +146,22 @@ function engineerQuestions () {
     })
 }
 
+const generateHTML = ({
+realName, idNum, email, officeNumber, github, school
+}) =>
+
 // Skeleton of doc
 `
 <h1>${realName}</h1>
 <h2>Manager</h2>
 
 <h3>${idNum}</h3>
-<h3>${Email}</h3>
+<h3>${email}</h3>
 <h3>${officeNumber}</h3>
 
-`
 
-`
+
+
 <h1>${realName}</h1>
 <h2>Engineer</h2>
 
@@ -165,9 +169,9 @@ function engineerQuestions () {
 <h3>${email}</h3>
 <h3>https://github.com/${github}</h3>
 
-`
 
-`
+
+
 <h1>${realName}</h1>
 <h2>Intern</h2>
 
@@ -176,8 +180,13 @@ function engineerQuestions () {
 <h3>${school}</h3>
 `
 
+{/* /* function writeHTML () {
+    fs.writeFileSync(
+        "./output/index.html"
+    )
+}
 
-
+writeHTML() */ */}
 
 
 
