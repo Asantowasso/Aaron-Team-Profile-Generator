@@ -15,6 +15,8 @@ const fs = require('fs')
 //inquirer.prompt
 // Need a name, ID number and email
 
+ let ourTeamArr = []
+
 function employeeType() {
     inquirer.prompt([
     {
@@ -71,9 +73,24 @@ function managerQuestions () {
         type: "input",
         name: "officeNumber",
         Message: "What is their office number"
+        },
+        {
+            type: "list",
+            name: "continue",
+            choices: [
+                "yes",
+                "no"
+            ]
+
         }
 
-    ])
+    ]).then (function(answers){
+        if (answers.continue === "yes"){
+            employeeType()
+        } else (answers.continue === "no")
+            return
+        
+    })
 }
 
 function internQuestions () {
@@ -82,8 +99,24 @@ function internQuestions () {
             type:"input",
             name: "school",
             message: "Where are they attending school"
+        },
+
+        {
+            type: "list",
+            name: "continue",
+            choices: [
+                "yes",
+                "no"
+            ]
+
         }
-    ])
+    ]).then (function(answers){
+        if (answers.continue === "yes"){
+            employeeType()
+        } else (answers.continue === "no")
+            return
+        
+    })
 }
 
 function engineerQuestions () {
@@ -92,9 +125,25 @@ function engineerQuestions () {
             type: "input",
             name: "github",
             message: "What is their Github username"
+        },
+
+        {
+            type: "list",
+            name: "continue",
+            choices: [
+                "yes",
+                "no"
+            ]
+
         }
 
-    ])
+    ]).then (function(answers){
+        if (answers.continue === "yes"){
+            employeeType()
+        } else (answers.continue === "no")
+            return
+        
+    })
 }
 
 
