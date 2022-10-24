@@ -41,76 +41,67 @@ function employeeType() {
             type: "list",
             name:"employeeType",
             choices: [
+                "Manager",
                 "Intern",
                 "Engineer",
                 "Exit"
 
 
-            ]
+            ] 
     }
 
     ]).then(function(answers) {
      if(answers.employeeType === "Intern"){
         internQuestions(answers)
-     } else if (answers.employeeType === "Engineer"){
+     } else if  (answers.employeeType === "Engineer"){
         engineerQuestions(answers)
-     }
+    } else  (answers.employeeType === "Manager")
+        managerQuestions(answers)
+        
 })
 }
-
 employeeType()
-const internQuestions = ([ 
-    
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is their name?'
-    },
 
-    {
-        type: 'input',
-        name: 'managername',
-        message: 'What is the name of your manager?'
-    },
+function managerQuestions () {
+    inquirer.prompt ([
+        {
+        type: "input",
+        name: "officeNumber",
+        Message: "What is their office number"
+        }
 
-    {
-        type: 'input',
-        name: 'employeeID',
-        message: 'What is your employee ID?'
-    },
-
-    {
-        type: 'input',
-        name: 'emailaddress',
-        message: 'What is your email address?'
-    },
-
-    {
-        type: 'input',
-        name: 'officenumber',
-        message: 'what is your office number?'
-    },
-
-   
-]);
-
-const generateIntern = ({managername, employeeID, emailaddress, officenumber, stafftype
-
-}) => ""
-
-//Skeleton of document
-
-//initialize application
-function initIntern() {
-    inquirer.prompt(internQuestions)
-    .then ((inquirerResponse) =>{
-        console.log(inquirerResponse)
-
-        console.log('Writing HTML');
-        fs.writeFileSync("./output/index.html",
-       generateIntern(inquirerResponse))
-    })
+    ])
 }
+
+function internQuestions () {
+    inquirer.prompt([
+        {
+            type:"input",
+            name: "school",
+            message: "Where are they attending school"
+        }
+    ])
+}
+
+function engineerQuestions () {
+    inquirer.prompt ([
+        {
+            type: "input",
+            name: "github",
+            message: "What is their Github username"
+        }
+
+    ])
+}
+
+
+
+
+
+
+
+
+
 
 // initIntern()
 
