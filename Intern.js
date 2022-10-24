@@ -1,9 +1,9 @@
-class Intern {
-   constructor(name, employeeID, email) {
-    this.name = name;
-    this.employeeID = employeeID;
-    this.email = email
+const Employee = require("./Employee")
 
+class Intern extends Employee {
+   constructor (school) {
+      this.school = school
    }
-   
 }
+
+module.exports = Intern

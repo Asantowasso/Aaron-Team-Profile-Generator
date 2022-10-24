@@ -44,7 +44,7 @@ function employeeType() {
                 "Manager",
                 "Intern",
                 "Engineer",
-                "Exit"
+                "end"
 
 
             ] 
@@ -55,8 +55,11 @@ function employeeType() {
         internQuestions(answers)
      } else if  (answers.employeeType === "Engineer"){
         engineerQuestions(answers)
-    } else  (answers.employeeType === "Manager")
+    } else if (answers.employeeType === "Manager"){
         managerQuestions(answers)
+    } else (answers.employeeType === "end")
+            return
+        
         
 })
 }

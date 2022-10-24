@@ -1,7 +1,9 @@
-class Engineer {
-    constructor (name, employeeID, email) {
-        this.name = name;
-        this.employeeID = employeeID
-        this. email = email
+const Employee = require("./Employee")
+
+class Engineer extends Employee {
+    constructor (github) {
+        this.github = github
     }
 }
+
+module.exports = Engineer
