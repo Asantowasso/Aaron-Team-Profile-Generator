@@ -146,8 +146,35 @@ function engineerQuestions () {
     })
 }
 
+// Skeleton of doc
+`
+<h1>${realName}</h1>
+<h2>Manager</h2>
 
+<h3>${idNum}</h3>
+<h3>${Email}</h3>
+<h3>${officeNumber}</h3>
 
+`
+
+`
+<h1>${realName}</h1>
+<h2>Engineer</h2>
+
+<h3>${idNum}</h3>
+<h3>${email}</h3>
+<h3>https://github.com/${github}</h3>
+
+`
+
+`
+<h1>${realName}</h1>
+<h2>Intern</h2>
+
+<h3>${idNum}</h3>
+<h3>${email}<h3>
+<h3>${school}</h3>
+`
 
 
 
