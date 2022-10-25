@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer')
 const fs = require('fs')
+const Engineer = require('./Engineer')
 
 
 //Create questions that ask from the array. 1.Manager's name, Employee ID, email address, office number.
@@ -41,7 +42,7 @@ function employeeType() {
 
     {
             type: "list",
-            name:"employeeType",
+            name:"position",
             choices: [
                 "Manager",
                 "Intern",
@@ -53,13 +54,13 @@ function employeeType() {
     }
 
     ]).then(function(answers) {
-     if(answers.employeeType === "Intern"){
+     if(answers.position === "Intern"){
         internQuestions(answers)
-     } else if  (answers.employeeType === "Engineer"){
+     } else if  (answers.position === "Engineer"){
         engineerQuestions(answers)
-    } else if (answers.employeeType === "Manager"){
+    } else if (answers.position === "Manager"){
         managerQuestions(answers)
-    } else (answers.employeeType === "end")
+    } else (answers.position === "end")
             return
         
         
@@ -76,7 +77,8 @@ function managerQuestions () {
         },
         {
             type: "list",
-            name: "continue",
+            name: "addmore",
+            message: "Add more staff?",
             choices: [
                 "yes",
                 "no"
@@ -85,9 +87,11 @@ function managerQuestions () {
         }
 
     ]).then (function(answers){
-        if (answers.continue === "yes"){
+        if (answers.addmore === "yes"){
+        const manager = new Manager (realName, idNum, email, position, officeNumber)
+        ourTeamArr.push(manager)
             employeeType()
-        } else (answers.continue === "no")
+        } else (answers.addmore === "no")
             return
         
     })
@@ -103,7 +107,8 @@ function internQuestions () {
 
         {
             type: "list",
-            name: "continue",
+            name: "addmore",
+            message: "Add more staff?",
             choices: [
                 "yes",
                 "no"
@@ -111,9 +116,11 @@ function internQuestions () {
 
         }
     ]).then (function(answers){
-        if (answers.continue === "yes"){
+        if (answers.addmore === "yes"){
+            const intern = new Intern (realName, idNum, email, position, school)
+            ourTeamArr.push(intern)
             employeeType()
-        } else (answers.continue === "no")
+        } else (answers.addmore === "no")
             return
         
     })
@@ -129,7 +136,8 @@ function engineerQuestions () {
 
         {
             type: "list",
-            name: "continue",
+            name: "addmore",
+            message: "Add more staff?",
             choices: [
                 "yes",
                 "no"
@@ -138,9 +146,11 @@ function engineerQuestions () {
         }
 
     ]).then (function(answers){
-        if (answers.continue === "yes"){
+        if (answers.addmore === "yes"){
+            const engineer = new Engineer (realName, idNum, email, position, github)
+            ourTeamArr.push(engineer)
             employeeType()
-        } else (answers.continue === "no")
+        } else (answers.addmore === "no")
             return
         
     })
@@ -180,13 +190,7 @@ realName, idNum, email, officeNumber, github, school
 <h3>${school}</h3>
 `
 
-{/* /* function writeHTML () {
-    fs.writeFileSync(
-        "./output/index.html"
-    )
-}
 
-writeHTML() */ */}
 
 
 
