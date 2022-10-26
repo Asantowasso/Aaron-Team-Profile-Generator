@@ -4,6 +4,20 @@ class Employee {
          this.idNum = idNum;
          this.email = email;
     }
+
+    getName(){
+        return this.realName
+    }
+
+    getID(){
+        return this.idNum
+    }
+
+    getEmail(){
+        return this.email
+    }
        
 
 }
+
+module.exports = Employee;

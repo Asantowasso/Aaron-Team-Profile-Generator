@@ -2,8 +2,7 @@
 
 const inquirer = require('inquirer')
 const fs = require('fs')
-const Engineer = require('./Engineer')
-
+ 
 
 //Create questions that ask from the array. 1.Manager's name, Employee ID, email address, office number.
 //These are asked for in prompts.
@@ -18,7 +17,7 @@ const Engineer = require('./Engineer')
 
  let ourTeamArr = []
 
-function employeeType() {
+const employeeType = () => {
     inquirer.prompt([
     {
         type: "input",
@@ -68,7 +67,7 @@ function employeeType() {
 }
 employeeType()
 
-function managerQuestions () {
+const managerQuestions = () => {
     inquirer.prompt ([
         {
         type: "input",
@@ -88,8 +87,6 @@ function managerQuestions () {
 
     ]).then (function(answers){
         if (answers.addmore === "yes"){
-        const manager = new Manager (realName, idNum, email, position, officeNumber)
-        ourTeamArr.push(manager)
             employeeType()
         } else (answers.addmore === "no")
             return
@@ -97,7 +94,7 @@ function managerQuestions () {
     })
 }
 
-function internQuestions () {
+const internQuestions = () => {
     inquirer.prompt([
         {
             type:"input",
@@ -117,8 +114,8 @@ function internQuestions () {
         }
     ]).then (function(answers){
         if (answers.addmore === "yes"){
-            const intern = new Intern (realName, idNum, email, position, school)
-            ourTeamArr.push(intern)
+            // const intern = new Intern (realName, idNum, email, position, school)
+            // ourTeamArr.push(intern)
             employeeType()
         } else (answers.addmore === "no")
             return
@@ -126,7 +123,7 @@ function internQuestions () {
     })
 }
 
-function engineerQuestions () {
+const engineerQuestions = () => {
     inquirer.prompt ([
         {
             type: "input",
@@ -147,14 +144,15 @@ function engineerQuestions () {
 
     ]).then (function(answers){
         if (answers.addmore === "yes"){
-            const engineer = new Engineer (realName, idNum, email, position, github)
-            ourTeamArr.push(engineer)
+            // const engineer = new Engineer (realName, idNum, email, position, officeNumber)
+            // ourTeamArr.push(engineer)
             employeeType()
         } else (answers.addmore === "no")
             return
         
     })
 }
+
 
 const generateHTML = ({
 realName, idNum, email, officeNumber, github, school
