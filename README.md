@@ -9,8 +9,7 @@ The Team Profile generator allows the user presumably a manager to create a prof
 Profiles for new staff can quickly be generated and relavent information quickly found. 
 
 
-## Demo video
-
-
 <img src ="./assets/Profile generator.jpg">
 
+## Demo video
+https://drive.google.com/file/d/1ljTtvOAOpxy3A90mZT61F_0KoXzkS0Ri/view
